@@ -145,19 +145,19 @@ const filtrarPorGenero = (array, value) => {
     cuerpoTabla.innerHTML = '';
     let arrayFiltrado = [];
 
-    if (arrayFiltrado.length === 0) {
-        const generoVacio = document.createElement('td');
-        generoVacio.textContent = 'Lo sentimos. No hay ninguna película que mostrar de este género.';
-        cuerpoTabla.append(generoVacio);
-     };
-
      if (value === 'Todos') {
         arrayFiltrado = array;
         arrayFiltrado.forEach((pelicula) => pintarDatos(pelicula));
      } else {
         arrayFiltrado = array.filter((elemento) => elemento.genero === value); 
         arrayFiltrado.forEach((pelicula) => pintarDatos(pelicula));
-     }
+     };
+
+     if (arrayFiltrado.length === 0) {
+        const generoVacio = document.createElement('td');
+        generoVacio.textContent = 'Lo sentimos. No hay ninguna película que mostrar de este género.';
+        cuerpoTabla.append(generoVacio);
+     };
 
 };
 //Invocación funciones
